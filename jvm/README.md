@@ -17,3 +17,5 @@
 
 # GC Roots和Reference Chain
 JVM在进行GC的时候是通过使用可达性来判断对象是否存活，通过GC Roots（GC根节点）的对象作为起始点，从这些节点开始进行向下搜索，搜索所走过的路径成为Reference Chain（引用链），当一个对象到GC Roots没有任何引用链相连（用图论的话来说就是从GC Roots到这个对象不可达）时，则证明此对象是不可用的。
+
+Reference:https://www.javatang.com/archives/2017/11/08/11582145.html
