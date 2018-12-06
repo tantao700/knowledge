@@ -28,3 +28,4 @@ SELECT *
         (20,20,20,20)
         )
  AS A(ADL_LEVEL, SEA, MASK,FEATURE_TYPE)
+ )
