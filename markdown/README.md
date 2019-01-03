@@ -23,6 +23,7 @@ cond(yes, right)->c2
 cond(no)->sub1(left)->op1
 c2(yes)->io->e
 c2(no)->op2->e
+```
 
 
 ![preview flow](https://image-static.segmentfault.com/334/564/3345641267-59c9df4945ddc_articlex)
