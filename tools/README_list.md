@@ -1,1 +1,0 @@
-burn iso for windows - https://rufus.ie

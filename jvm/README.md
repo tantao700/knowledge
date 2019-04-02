@@ -1,21 +1,41 @@
-# jvisualvm
+# 排查利器
+- btrace - https://github.com/btraceio/btrace
+- Greys 
+  - sc -df xxxx 输出当前类的详情,包括源码位置和classloader结构
+- arthas
+- javOSize
+  - classes:过修改了字节码，改变了类的内容，即时生效。
+- JProfiler
+- eclipseMAT - http://www.eclipse.org/mat/
+- zprofiler - 替代 eclipseMAT https://zprofiler.alibaba-inc.com
+- CHLSDB 
+  - sudo -u admin /opt/taobao/java/bin/java -classpath /opt/taobao/java/lib/sa-jdi.jar sun.jvm.hotspot.CLHSDB
+  - http://rednaxelafx.iteye.com/blog/1847971
 
-- histogram(直方图)
-    Shallow Heap(自身并不包含引用的大小)
-    Retained Heap(自身并包含引用的大小)
+## VM options
+- -XX:+TraceClassLoading #你的类到底是从哪个文件加载进来的？
+- -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/home/admin/logs/java.hprof #
 
-- Dominator Tree(支配树)
-    显示对象及其包含对象的引用关系
+## jar包冲突
+- mvn dependency:tree > ~/dependency.txt #打出所有依赖
+- mvn dependency:tree -Dverbose -Dincludes=groupId:artifactId  #只打出指定groupId和artifactId的依赖关系
+- -XX:+TraceClassLoading #vm启动脚本加入。在tomcat启动脚本中可见加载类的详细信息
+- -verbose #vm启动脚本加入。在tomcat启动脚本中可见加载类的详细信息
+- greys:sc #greys的sc命令也能清晰的看到当前类是从哪里加载过来的
+- tomcat-classloader-locate 
+  - 通过以下url可以获知当前类是从哪里加载的
+  - curl http://localhost:8006/classloader/locate?class=org.apache.xerces.xs.XSObject
+- ALI-TOMCAT
+  - @务观
+  - 列出容器加载的jar列表
+  - curl http://localhost:8006/classloader/jars
+  - 列出当前当当前类加载的实际jar包位置，解决类冲突时有用
+    - curl http://localhost:8006/classloader/locate?class=org.apache.xerces.xs.XSObject
 
-# (Reference)对象引用    
-对象引用按从最强到最弱有如下级别，不同的引用（可到达性）级别反映了对象的生命周期：
-
-- 强引用（Strong Ref）：通常我们编写的代码都是强引用，于此相对应的是强可达性，只有去掉强可达性，对象才能被回收。
-- 软引用（Soft Ref）：对应软可达性，只要有足够的内存就一直保持对象，直到发现内存不足且没有强引用的时候才回收对象。
-- 弱引用（Weak Ref）：比软引用更弱，当发现不存在强引用的时候会立即回收此类型的对象，而不需要等到内存不足。通过java.lang.ref.WeakReference和java.util.WeakHashMap类实现。
-- 虚引用（Phantom Ref）：根本不会在内存中保持该类型的对象，只能使用虚引用本身，一般用于在进入finalize()方法后进行特殊的清理过程，通过java.lang.ref.PhantomReference实现。
-
-# GC Roots和Reference Chain
-JVM在进行GC的时候是通过使用可达性来判断对象是否存活，通过GC Roots（GC根节点）的对象作为起始点，从这些节点开始进行向下搜索，搜索所走过的路径成为Reference Chain（引用链），当一个对象到GC Roots没有任何引用链相连（用图论的话来说就是从GC Roots到这个对象不可达）时，则证明此对象是不可用的。
-
-Reference:https://www.javatang.com/archives/2017/11/08/11582145.html
+# other
+- gpref - http://www.atatech.org/articles/33317
+- dmesg 
+  - 如果发现自己的java进程悄无声息的消失了，几乎没有留下任何线索，那么dmesg一发，很有可能有你想要的。
+  - sudo dmesg|grep -i kill|less
+- RateLimiter
+  - 想要精细的控制QPS? 比如这样一个场景，你调用某个接口，对方明确需要你限制你的QPS在400之内你怎么控制？这个时候RateLimiter就有了用武之地
