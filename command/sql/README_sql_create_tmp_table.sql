@@ -1,0 +1,31 @@
+-- tested postgresql
+
+-- 查询出来的数据集作为临时表使用WITH
+WITH GEOM AS
+(
+  SELECT G.AD_LEVEL,
+         G.AD_CODE,
+         ST_Union(G.GEOM) AS WKB,
+         MIN(FEATURE_ID) AS FEATURE_ID
+  FROM AXF.ADMINAREA G
+  WHERE ST_IsValid(G.GEOM)
+  AND   NOT ST_IsEmpty(G.GEOM)
+  GROUP BY G.AD_LEVEL,
+           G.AD_CODE
+)
+SELECT FEATURE_ID,
+       ST_AsEWKB(WKB) AS WKB,
+       MAP.NNDB_FEATURE_TYPE_ID AS FEATURE_TYPE
+FROM GEOM G
+  JOIN NNDB.SOURCE_TO_NNDB_FEATURE_TYPE MAP ON G.AD_LEVEL = MAP.SOURCE_FEATURE_TYPE_ID
+
+-- 手动设置一个临时表
+(
+SELECT *
+    FROM (
+    VALUES
+        (10,10,10,10),
+        (20,20,20,20)
+        )
+ AS A(ADL_LEVEL, SEA, MASK,FEATURE_TYPE)
+ )

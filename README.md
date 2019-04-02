@@ -1,2 +1,2 @@
-# knowledge
-knowledge for myself
+# learnning
+log something
