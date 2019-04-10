@@ -1,0 +1,6 @@
+{
+    "go.gopath": "C:\\Users\\Xxx\\go;D:\\path\\to\\project",
+    "go.formatTool": "goreturns",
+    "go.autocompleteUnimportedPackages": true,
+    
+}
