@@ -6,3 +6,6 @@
 - o  - newline insert after curor
 - r !{linxu_command} - execute a linux command ,for example: :r !echo 'hello'
 - ddp - swap down the first line and second line.
+
+
+- :w !sudo tee %   - save read only file
