@@ -1,6 +1,6 @@
 # 在GO中设置开发/Debug环境
 
-# Windows
+# 以Windows为例子
 - 系统环境设置
     - GOPATH=C:\Users\Xxx\go;D:\Workspace\goproject
     - GOROOT=C:\Go
@@ -57,11 +57,17 @@
     "go.toolsGopath": "C:\\Users\\Xxx\\go",
     "go.gopath": "C:\\Users\\Xxx\\go;D:\\Sources\\go\\hello",
     "go.autocompleteUnimportedPackages": true,
+        "go.testEnvVars": {
+        "ENV_PARAM1":"hello",
+        "ENV_PARAM2":"world"
+    },
     "code-runner.executorMap": {
         "go": "set GOPATH=C:\\Users\\Xxx\\go;D:\\Sources\\go\\hello&& go run"
     }
 }
 ```
+
+按照以上的设置就能够 在VsCode上进行，一下是效果
 
 ```console
 [Running] set GOPATH=C:\Users\Xxx\go;D:\Sources\go\hello&& go run "d:\Sources\go\hello\src\main\main.go"

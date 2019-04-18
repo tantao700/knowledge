@@ -1,5 +1,3 @@
-pylint
-======
-  "python.linting.pylintArgs": [
-          "--disable-ids=C0111"
-  ]
+# This folder introduce vscode settings for different languages and tools
+
+- GOLANG
