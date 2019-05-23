@@ -32,6 +32,11 @@
 - y -yank (copy)
 - v -visually select
 
+## Cmd Set
+- r!req 10 # gen a 1-10 set
+- 1,+1d    #range form 1 to current cursor +1  ,then to delete
+- 1;+1d    #range 1,2 to delete
+
 
 ## Macro
 A sequence of commands recorded to a register
