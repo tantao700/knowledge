@@ -36,6 +36,12 @@
 - r!req 10 # gen a 1-10 set
 - 1,+1d    #range form 1 to current cursor +1  ,then to delete
 - 1;+1d    #range 1,2 to delete
+- ci{char} ci" ci' ci}       # change insert "符号内的字符
+- di{char} di" di' di}       # delete insert "符号内的字符
+- vi{char} vi" vi' vi}       # selete insert "符号内的字符
+- yi{char} yi" yi' yi}       # yank(copy) insert "符号内的字符
+
+
 
 
 ## Macro
