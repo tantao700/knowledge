@@ -66,5 +66,13 @@ select * from pg_stat_statements where query ilike '%<table>%'order by shared_bl
 select pg_cancel_backend(pid) from pg_stat_activity where  query like '%<query text>%' and pid != pg_backend_pid();
 select pg_terminate_backend(pid) from pg_stat_activity where  query like '%<query text>%' and pid != pg_backend_pid();
 
+-- Show Lock
+show log_lock_waits;
+show deadlock_timeout ;
+
+
+-- drop schema fts_poc cascade ;
+drop schema schema_name cascade ;
+
 
 ```
