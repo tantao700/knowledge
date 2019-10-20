@@ -1,0 +1,36 @@
+version: '2'
+
+services:
+
+    mysql8:
+        image: mysql:8
+        restart: always
+        ports:
+            - "3306:3306"
+        volumes:
+            - /root/data/mysql:/var/lib/mysql
+        command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+        environment:
+            MYSQL_ROOT_PASSWORD: mysql
+            MYSQL_DATABASE: test
+            MYSQL_ROOT_HOST: '%'
+            MYSQL_USER: admin
+            MYSQL_PASSWORD: admin
+    gogs:
+        image: gogs/gogs
+        restart: always
+        ports:
+            - "3000:3000"
+            - "8082:22"            
+        volumes:
+            - /root/data/gogs:/data
+
+    jenkins:
+        image: jenkins/jenkins:lts
+        restart: always
+        ports:
+            - "50000:50000"
+            - "8080:8080"
+        volumes:
+            - /root/data/jenkins_home:/var/jenkins_home
+
