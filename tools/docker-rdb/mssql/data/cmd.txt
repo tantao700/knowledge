@@ -1,0 +1,22 @@
+#run
+docker run -e 'ACCEPT_EULA=Y' -e 'MSSQL_SA_PASSWORD=<YourStrong!Passw0rd>' -p 1433:1433 -d [image]
+
+
+#exec
+docker exec -it [container] bash
+
+
+#bash
+sqlcmd -S 10.3.2.4,1401 -U SA -P '<YourPassword>'
+
+
+
+#query
+-- Creates the login AbolrousHazem with password '340$Uuxwp7Mcxo7Khy'.  
+CREATE LOGIN AbolrousHazem   
+    WITH PASSWORD = '340$Uuxwp7Mcxo7Khy';  
+GO  
+
+-- Creates a database user for the login created above.  
+CREATE USER AbolrousHazem FOR LOGIN AbolrousHazem;  
+GO  

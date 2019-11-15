@@ -1,0 +1,7 @@
+docker run \
+-e PGDATA=/data/pgdata \
+--volume /home/postgres/pgdata:/data \
+-e POSTGRES_INITDB_ARGS="--data-checksums -E utf8 --no-locale" \
+--name postgres96 \
+--publish 5432:5432 \
+postgres:latest

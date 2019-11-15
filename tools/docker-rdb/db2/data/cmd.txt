@@ -1,0 +1,13 @@
+#EXPRESS-C version
+
+docker pull ibmcom/db2express-c
+docker run -it -p 50000:50000 -e DB2INST1_PASSWORD=db2inst1-pwd -e LICENSE=accept  --name db2  -v $(pwd):/share  ibmcom/db2express-c:latest bash
+
+
+$ su - db2inst1
+$ db2start
+$ db2sampl
+
+
+sys : db2inst1
+pw : db2inst1-pwd

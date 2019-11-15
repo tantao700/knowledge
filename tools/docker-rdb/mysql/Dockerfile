@@ -1,0 +1,7 @@
+FROM mysql
+
+ENV MYSQL_ROOT_PASSWORD=my-secret-pw
+
+
+EXPOSE 3306
+
