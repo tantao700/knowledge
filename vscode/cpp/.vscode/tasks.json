@@ -1,0 +1,38 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "ms vc run",
+            "type":"shell",
+            "command":"${workspaceFolder}/main.exe",
+            "group": "test",
+        },
+        {
+            "label": "msvc build",
+            "type": "shell",
+            "command": "C:\\P\\Microsoft\\VisualStudio\\2019\\Community\\VC\\Tools\\MSVC\\14.24.28314\\bin\\Hostx64\\x64\\cl.exe",
+            "args": [
+                "/DDBUG",
+                "/Zi",
+                // "/Fd:","out/main.pdb",
+                // "/Fo:","out/main.obj",
+                "main.cpp"
+            ],
+            "options": {
+                "env": {
+                    "include":"C:\\P\\Microsoft\\VisualStudio\\2019\\Community\\VC\\Tools\\MSVC\\14.24.28314\\ATLMFC\\include;C:\\P\\Microsoft\\VisualStudio\\2019\\Community\\VC\\Tools\\MSVC\\14.24.28314\\include;D:\\Windows Kits\\10\\include\\10.0.18362.0\\ucrt;D:\\Windows Kits\\10\\include\\10.0.18362.0\\shared;D:\\Windows Kits\\10\\include\\10.0.18362.0\\um;D:\\Windows Kits\\10\\include\\10.0.18362.0\\winrt;D:\\Windows Kits\\10\\include\\10.0.18362.0\\cppwinrt",
+                    "lib":"C:\\P\\Microsoft\\VisualStudio\\2019\\Community\\VC\\Tools\\MSVC\\14.24.28314\\ATLMFC\\lib\\x64;C:\\P\\Microsoft\\VisualStudio\\2019\\Community\\VC\\Tools\\MSVC\\14.24.28314\\lib\\x64;D:\\Windows Kits\\10\\lib\\10.0.18362.0\\ucrt\\x64;D:\\Windows Kits\\10\\lib\\10.0.18362.0\\um\\x64;",
+                    "path":"C:\\P\\Microsoft\\VisualStudio\\2019\\Community\\VC\\Tools\\MSVC\\14.24.28314\\bin\\HostX86\\x64;C:\\P\\Microsoft\\VisualStudio\\2019\\Community\\Common7\\IDE\\VC\\VCPackages;C:\\P\\Microsoft\\VisualStudio\\2019\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\TestWindow;C:\\P\\Microsoft\\VisualStudio\\2019\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\TeamFoundation\\Team Explorer;C:\\P\\Microsoft\\VisualStudio\\2019\\Community\\MSBuild\\Current\\bin\\Roslyn;C:\\P\\Microsoft\\VisualStudio\\2019\\Community\\Team Tools\\Performance Tools;D:\\P\\Microsoft\\Visual Studio\\Shared\\Common\\VSPerfCollectionTools\\vs2019\\;D:\\Windows Kits\\10\\bin\\10.0.18362.0\\x86;D:\\Windows Kits\\10\\bin\\x86;C:\\P\\Microsoft\\VisualStudio\\2019\\Community\\\\MSBuild\\Current\\Bin;C:\\WINDOWS\\Microsoft.NET\\Framework\\v4.0.30319;C:\\P\\Microsoft\\VisualStudio\\2019\\Community\\Common7\\IDE\\;C:\\P\\Microsoft\\VisualStudio\\2019\\Community\\Common7\\Tools\\;C:\\ProgramData\\DockerDesktop\\version-bin;C:\\Program Files\\Docker\\Docker\\Resources\\bin;C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\Windows\\CCM;C:\\Program Files (x86)\\Webex\\Webex\\Applications;C:\\P\\Java\\jdk1.8.0_202\\bin;C:\\P\\Git\\cmd;D:\\P\\Java\\apache-maven-3.5.2\\bin;D:\\P\\Java\\apache-ant-1.9.10\\bin;D:\\P\\Java\\gradle-5.6.1\\bin;C:\\P\\Perforce\\;C:\\P\\nodejs\\;D:\\P\\Java\\Android\\sdk\\platform-tools;C:\\Python27;C:\\Program Files (x86)\\PuTTY\\;C:\\Go\\bin;C:\\Users\\TaoTan\\go\\bin;C:\\Program Files\\dotnet\\;C:\\Python27\\Scripts;C:\\Program Files (x86)\\Sennheiser\\SoftphoneSDK\\;C:\\P\\PuTTY\\;C:\\P\\Microsoft\\Code\\bin;D:\\P\\apache-jmeter-5.1.1\\bin;D:\\P\\Strawberry\\c\\bin;D:\\P\\Strawberry\\perl\\site\\bin;D:\\P\\Strawberry\\perl\\bin;C:\\Users\\TaoTan\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\TaoTan\\AppData\\Roaming\\npm;C:\\Users\\TaoTan\\go\\bin;D:\\P\\apache-jmeter-5.1.1\\bin;C:\\P\\Git\\usr\\bin;C:\\P\\Microsoft\\VisualStudio\\2019\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin;C:\\P\\Microsoft\\VisualStudio\\2019\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\Ninja"
+                }
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always"
+            },
+            "problemMatcher": "$msCompile"
+        }
+    ]
+}
