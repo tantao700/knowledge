@@ -56,3 +56,6 @@
 |nc -zv 127.0.0.1 8080|tcp 查看端口是否可用|-|
 |nc -zu 127.0.0.1 8080|udp 查看端口是否可用|-|
 
+
+rsync -avzP --rsh=ssh file user@host:/home/user/path/to/file/
+
